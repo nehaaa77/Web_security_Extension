@@ -6,28 +6,6 @@
   <title>SecureWeb Alert 2.0</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;600&display=swap" rel="stylesheet">
   <style>
-     #particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 0; /* Changed from -1 to 0 */
-  }
-
-  .navbar {
-    padding: 1.5rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(10, 10, 10, 0.95);
-    border-bottom: 1px solid var(--neon-green);
-    position: relative;
-    z-index: 2; /* Added z-index */
-  }
-
-  .hero, .features, .blog-section, footer {
-    position: relative;
-    z-index: 1; /* Added z-index */
-  }
     :root {
       --neon-green: #00ff9f;
       --dark-bg: #0a0a0a;
@@ -51,7 +29,7 @@
       position: fixed;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: 0;
     }
 
     .navbar {
@@ -61,6 +39,8 @@
       align-items: center;
       background: rgba(10, 10, 10, 0.95);
       border-bottom: 1px solid var(--neon-green);
+      position: relative;
+      z-index: 2;
     }
 
     .logo {
@@ -104,6 +84,8 @@
       opacity: 0;
       animation: fadeInUp 1s forwards;
       animation-delay: 0.5s;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -124,6 +106,8 @@
       opacity: 0;
       animation: fadeInUp 1s forwards;
       animation-delay: 1s;
+      position: relative;
+      z-index: 1;
     }
 
     .feature-card {
@@ -146,6 +130,8 @@
       opacity: 0;
       animation: fadeInUp 1s forwards;
       animation-delay: 1.5s;
+      position: relative;
+      z-index: 1;
     }
 
     .cta-button {
@@ -172,8 +158,11 @@
       text-align: center;
       border-top: 1px solid rgba(0, 255, 159, 0.2);
       margin-top: 4rem;
+      position: relative;
+      z-index: 1;
     }
 
+    /* Animations */
     @keyframes glow {
       from { text-shadow: 0 0 10px var(--neon-green); }
       to { text-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green); }
@@ -184,15 +173,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .matrix-text {
-      position: fixed;
-      color: var(--matrix-green);
-      font-size: 12px;
-      opacity: 0.3;
-      pointer-events: none;
-      z-index: -1;
-    }
-     /* Add this new popup style section */
+    /* Beta Popup Styles */
     .beta-popup {
       position: fixed;
       bottom: 20px;
@@ -252,6 +233,21 @@
     .emoji {
       animation: pulse 2s infinite;
     }
+
+    /* Matrix Rain Effect */
+    .matrix-text {
+      position: fixed;
+      color: var(--matrix-green);
+      font-size: 12px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes fall {
+      from { transform: translateY(-100vh); }
+      to { transform: translateY(100vh); }
+    }
   </style>
 </head>
 <body>
@@ -292,7 +288,7 @@
     <p>Visit our partner blog for cutting-edge cybersecurity research</p>
     <a href="https://netrinix.com/blog" target="_blank" class="cta-button">Explore Netrinix Blog</a>
   </section>
-  <!-- Add this popup HTML before closing body tag -->
+
   <div class="beta-popup">
     <button class="beta-popup-close" aria-label="Close">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -301,7 +297,7 @@
     </button>
     <h3><span class="emoji">🚀</span> Beta Version 0.9</h3>
     <p>Thank you for testing SecureWeb 2.0! This preview release contains experimental features. Please report any issues to our team. 🔒</p>
-    <button class="cta-button small" style="margin-top: 1rem; padding: 0.5rem 1rem;" href="https://github.com/nehaaa77/Web_security_Extension/issues">Provide Feedback</button>
+    <a href="https://github.com/nehaaa77/Web_security_Extension/issues" class="cta-button small" style="margin-top: 1rem; padding: 0.5rem 1rem;">Provide Feedback</a>
   </div>
 
   <footer>
@@ -310,33 +306,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-
-    particlesJS("particles-js", {
-    particles: {
-      number: { value: 150 },
-      color: { value: ["#00ff9f", "#00ff41", "#ffffff"] },
-      shape: { type: "circle" },
-      opacity: { value: 0.7 },
-      size: { value: 3 },
-      move: {
-        enable: true,
-        speed: 6, /* Increased speed */
-        direction: "none",
-        random: true,
-        straight: false,
-        out_mode: "out",
-        bounce: false
-      },
-      line_linked: {
-        enable: true,
-        distance: 100, /* Reduced distance */
-        color: "#00ff9f",
-        opacity: 0.6, /* Increased opacity */
-        width: 1
-      }
-    },
-    /* Rest of the particles config remains same */
-  });
+    // Enhanced Particles Configuration
     particlesJS("particles-js", {
       particles: {
         number: { value: 150 },
@@ -346,7 +316,7 @@
         size: { value: 3 },
         move: {
           enable: true,
-          speed: 2,
+          speed: 6,
           direction: "none",
           random: true,
           straight: false,
@@ -355,9 +325,9 @@
         },
         line_linked: {
           enable: true,
-          distance: 150,
+          distance: 100,
           color: "#00ff9f",
-          opacity: 0.4,
+          opacity: 0.6,
           width: 1
         }
       },
@@ -371,7 +341,7 @@
       retina_detect: true
     });
 
-    // Matrix rain effect
+    // Matrix Rain Effect
     function createMatrixEffect() {
       const chars = "01";
       const container = document.body;
@@ -388,10 +358,11 @@
       }, 50);
     }
 
+    // Initialization
     document.addEventListener("DOMContentLoaded", () => {
       createMatrixEffect();
       
-      // Scroll animations
+      // Scroll Animations
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if(entry.isIntersecting) {
@@ -402,27 +373,20 @@
       }, { threshold: 0.1 });
       
       document.querySelectorAll(".hero, .features, .blog-section").forEach(el => observer.observe(el));
-    });
 
-     // Add this JavaScript at the end of existing script
-    document.addEventListener('DOMContentLoaded', () => {
+      // Beta Popup Logic
       const popup = document.querySelector('.beta-popup');
       const closeBtn = document.querySelector('.beta-popup-close');
       
-      // Show popup after 3 seconds
-      setTimeout(() => {
-        popup.style.display = 'block';
-      }, 3000);
+      setTimeout(() => popup.style.display = 'block', 3000);
 
-      // Close functionality
       closeBtn.addEventListener('click', () => {
         popup.style.animation = 'slideDown 0.5s forwards';
         setTimeout(() => popup.remove(), 500);
       });
 
-      // Optional: Close when clicking outside
       document.addEventListener('click', (e) => {
-        if (!popup.contains(e.target) {
+        if (!popup.contains(e.target)) {
           popup.style.animation = 'slideDown 0.5s forwards';
           setTimeout(() => popup.remove(), 500);
         }
