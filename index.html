@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureWeb Alert Extension</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Share Tech Mono', monospace;
+      background: #0f0f0f;
+      color: #0f0;
+      overflow: hidden;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .container {
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #00ff9f;
+      text-shadow: 0 0 5px #00ff9f, 0 0 10px #00ff9f;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 800px;
+      color: #ccc;
+    }
+    .button {
+      background: #00ff9f;
+      color: #000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      margin-top: 30px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00ff9f;
+    }
+    .button:hover {
+      background: #00c285;
+      box-shadow: 0 0 20px #00ff9f, 0 0 30px #00ff9f;
+    }
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="container">
+    <h1>SecureWeb Alert</h1>
+    <p>
+      SecureWeb Alert is a cutting-edge browser extension that defends you from phishing and malicious websites in real time. With built-in threat detection, instant alerts, and domain blocking, it ensures your safety while browsing the web.
+    </p>
+    <p>
+      This tool is crafted for security-conscious users and professionals alike, offering lightweight yet powerful protection through smart scanning rules and APIs.
+    </p>
+    <a href="SecureWeb-Alert.zip" download><button class="button">Download Extension</button></a>
+  </div>
+  <footer>
+    &copy; 2025 SecureWeb Alert | Designed for Cybersecurity Professionals
+  </footer>
+
+  <!-- Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00ff9f" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ff9f",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 3 }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>
