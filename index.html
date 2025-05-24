@@ -170,6 +170,66 @@
       pointer-events: none;
       z-index: -1;
     }
+     /* Add this new popup style section */
+    .beta-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(10, 10, 10, 0.95);
+      border: 2px solid var(--neon-green);
+      border-radius: 10px;
+      padding: 1.5rem;
+      max-width: 300px;
+      z-index: 1000;
+      box-shadow: 0 0 20px rgba(0, 255, 159, 0.2);
+      transform: translateY(150%);
+      animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      backdrop-filter: blur(5px);
+    }
+
+    .beta-popup h3 {
+      color: var(--neon-green);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .beta-popup p {
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .beta-popup-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.3rem;
+      transition: 0.3s;
+    }
+
+    .beta-popup-close:hover {
+      color: var(--neon-green);
+    }
+
+    @keyframes slideUp {
+      to { transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .emoji {
+      animation: pulse 2s infinite;
+    }
   </style>
 </head>
 <body>
@@ -210,6 +270,17 @@
     <p>Visit our partner blog for cutting-edge cybersecurity research</p>
     <a href="https://netrinix.com/blog" target="_blank" class="cta-button">Explore Netrinix Blog</a>
   </section>
+  <!-- Add this popup HTML before closing body tag -->
+  <div class="beta-popup">
+    <button class="beta-popup-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M13 1L1 13M1 1L13 13" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
+    <h3><span class="emoji">🚀</span> Beta Version 0.9</h3>
+    <p>Thank you for testing SecureWeb 2.0! This preview release contains experimental features. Please report any issues to our team. 🔒</p>
+    <button class="cta-button small" style="margin-top: 1rem; padding: 0.5rem 1rem;">Provide Feedback</button>
+  </div>
 
   <footer>
     <p>&copy; 2025 SecureWeb Alert | Enterprise-Grade Cybersecurity Solutions</p>
@@ -282,6 +353,31 @@
       }, { threshold: 0.1 });
       
       document.querySelectorAll(".hero, .features, .blog-section").forEach(el => observer.observe(el));
+    });
+
+     // Add this JavaScript at the end of existing script
+    document.addEventListener('DOMContentLoaded', () => {
+      const popup = document.querySelector('.beta-popup');
+      const closeBtn = document.querySelector('.beta-popup-close');
+      
+      // Show popup after 3 seconds
+      setTimeout(() => {
+        popup.style.display = 'block';
+      }, 3000);
+
+      // Close functionality
+      closeBtn.addEventListener('click', () => {
+        popup.style.animation = 'slideDown 0.5s forwards';
+        setTimeout(() => popup.remove(), 500);
+      });
+
+      // Optional: Close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!popup.contains(e.target) {
+          popup.style.animation = 'slideDown 0.5s forwards';
+          setTimeout(() => popup.remove(), 500);
+        }
+      });
     });
   </script>
 </body>
