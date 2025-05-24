@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "priority": 1,
+      "action": {
+        "type": "block"
+      },
+      "condition": {
+        "urlFilter": "malware.html",
+        "resourceTypes": ["main_frame"]
+      }
+    }
+  ]
+  

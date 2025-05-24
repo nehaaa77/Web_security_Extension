@@ -1,0 +1,31 @@
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
+    margin: 10px;
+    width: 250px;
+  }
+  
+  .alert-title {
+    color: #ff007f;
+  }
+  
+  #status {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  #reportBtn {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: #ff007f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  #reportBtn:hover {
+    background: #e60073;
+  }
+  

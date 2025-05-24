@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 200px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.title {
+  color: #ff0066;
+  font-size: 1.5em;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #0ff;
+  animation: blink 1s infinite;
+}
+
+.report-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #ff0066;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px #ff0066, 0 0 20px #ff3399;
+}
+
+.report-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0066, 0 0 30px #ff3399;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff0066, 0 0 10px #ff3399; }
+  to { text-shadow: 0 0 20px #ff0066, 0 0 30px #ff3399; }
+}
+
+.scanner-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 200px;
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05), transparent 70%);
+  animation: scan 4s linear infinite;
+  z-index: 0;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%) rotate(0deg); }
+  100% { transform: translateY(200%) rotate(360deg); }
+}
